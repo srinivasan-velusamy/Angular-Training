@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="DemoApp">
+	<head>
+		<title> Learn Angularjs </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="controllers/employeesController.js"></script>
+		<script src="controllers/profileController.js"></script>
+		<script src="directives/employeesDirective.js"></script>
+	</head>
+	<body>
+		<h2>{{username}}</h2>		
+		<div ng-controller="EmployeeController">
+			
+			<employee-directive action-type="addUser();" my-selected-employee="selectedEmployee" action-name="Add User" ></employee-directive>
+			
+			<div>
+				<ul>
+					<li ng-repeat="e in employees">
+						<!--<h3>{{e.name}} : {{e.role}}</h3>-->
+						<div>
+							<h3>{{e.name + " is " + e.role + ", working in "+ e.project.name + " project at " + e.project.location}} </h3>
+							<input type="button" value="Delete" ng-click="removeUser($index);"> 
+							<button ng-click="showUser(e, $index)">Profile</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div ng-controller="ProfileController">
+			<h5>Name : {{currentEmployee.name}}</h5>
+			<h5>Role : {{currentEmployee.role}}</h5>
+			<h5>Project Name : {{currentEmployee.project.name}}</h5>
+			<h5>Project Location : {{currentEmployee.project.location}}</h5>
+			
+			<employee-directive action-type="updateUser(selectedId)" my-selected-employee="currentEmployee" action-name="Edit User"></employee-directive>
+			
+		</div>
+		
+		<div>
+			<h3> Activity created by: {{username}} </h3>
+			<ul>
+				<li ng-repeat="msg in message">{{msg}}</li>
+			</ul>
+		</div>
+		
+	</body>
+</html>	
