@@ -7,12 +7,17 @@
 		<script src="controllers/employeesController.js"></script>
 		<script src="controllers/profileController.js"></script>
 		<script src="directives/employeesDirective.js"></script>
+		<script src="directives/scopeDirective.js"></script>
 	</head>
 	<body>
-		<h2>{{username}}</h2>		
+		<h2>{{username}}</h2>	
+		
 		<div ng-controller="EmployeeController">
 			
+			
+			
 			<employee-directive action-type="addUser();" my-selected-employee="selectedEmployee" action-name="Add User" ></employee-directive>
+			<label my-text="showme" ng-show="showme">{{msg}}</label>
 			
 			<div>
 				<ul>

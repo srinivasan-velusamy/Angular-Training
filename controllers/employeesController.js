@@ -41,6 +41,7 @@ angular.module('DemoApp').factory('employeeFactory', function(){
 app.controller('EmployeeController', function($rootScope, $scope, employeeFactory){
 	
 	$scope.employees = employeeFactory.showList();
+	$scope.showme = false;
 	//console.log($scope.employees);
 	$rootScope.username = "Srinivasan";
 	$rootScope.message = [];
@@ -54,7 +55,9 @@ app.controller('EmployeeController', function($rootScope, $scope, employeeFactor
 		$scope.selectedEmployee.name = null;
 		$scope.selectedEmployee.role = null;
 		$scope.selectedEmployee.project.name = null;
-		$scope.selectedEmployee.project.location = null;	
+		$scope.selectedEmployee.project.location = null;
+		$scope.showme = true;
+		$scope.msg = "Added Successfully!";
 		
 	}
 	

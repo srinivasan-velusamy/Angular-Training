@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="DemoApp">
+	<head>
+		<title> Learn Angularjs </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="directives/scopeDirective.js"></script>
+	</head>
+	<body>
+			
+		<div ng-controller="Controller">
+			Date format: <input ng-model="format"> <hr/>
+			Current time is: <span my-current-time="format"></span>
+			<button ng-click="clickMe();">Click Me</button>
+			<label my-text="showme"  ng-show="showme">Hai</label>
+		</div>
+		
+	</body>
+</html>	
