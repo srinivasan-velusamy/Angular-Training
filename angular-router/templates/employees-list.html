@@ -1,0 +1,30 @@
+<h2>{{username}}</h2>	
+		
+		<div>
+			
+			<employee-directive action-type="addUser();" my-selected-employee="selectedEmployee" action-name="Add User" ></employee-directive>
+			<label my-text="showme" ng-show="showme">{{msg}}</label>
+			
+			
+			<div>
+				<h4><input type="text" ng-model="searchTxt.name" placeholder="Search"><input type="checkbox" ng-model="caseSenstive"> Case Senstive</h4>
+				<ul>
+					<li ng-repeat="e in employees | orderBy: '-id' | filter : searchTxt : caseSenstive">
+						<!--<h3>{{e.name}} : {{e.role}}</h3>-->
+						<div>
+							<h3>{{ e | myFilters }} </h3>
+							<input type="button" value="Delete" ng-click="removeUser(e.id);"> 
+							<button ng-click="showUser(e, e.id)">Profile</button>
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div>
+			<h3> Activity created by: {{username}} </h3>
+			<ul>
+				<li ng-repeat="msg in message">{{msg}}</li>
+			</ul>
+		</div>
+		

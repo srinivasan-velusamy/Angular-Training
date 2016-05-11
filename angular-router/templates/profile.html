@@ -1,0 +1,9 @@
+	<div>
+		<h5>Name : {{currentEmployee.name}}</h5>
+		<h5>Role : {{currentEmployee.role}}</h5>
+		<h5>Project Name : {{currentEmployee.project.name}}</h5>
+		<h5>Project Location : {{currentEmployee.project.location}}</h5>
+		
+		<employee-directive action-type="updateUser(selectedId)" my-selected-employee="currentEmployee" action-name="Edit User"></employee-directive>
+		
+	</div>
